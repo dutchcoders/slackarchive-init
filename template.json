@@ -1,0 +1,393 @@
+{
+    "order": 0,
+    "template": "slackarchive",
+    "settings": {
+        "index": {
+            "number_of_shards": "2"
+        }
+    },
+    "mappings": {
+        "messages": {
+            "properties": {
+                "query": {
+                    "properties": {
+                        "match_all": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "aggs": {
+                    "properties": {
+                        "by_team": {
+                            "properties": {
+                                "terms": {
+                                    "properties": {
+                                        "field": {
+                                            "type": "text"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "message": {
+            "properties": {
+                "user": {
+                    "type": "text"
+                },
+                "item_type": {
+                    "type": "text"
+                },
+                "icons": {
+                    "properties": {
+                        "icon_url": {
+                            "type": "text"
+                        },
+                        "icon_emoji": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "upload": {
+                    "type": "boolean"
+                },
+                "attachments": {
+                    "properties": {
+                        "author_subname": {
+                            "type": "text"
+                        },
+                        "author_name": {
+                            "type": "text"
+                        },
+                        "actions": {
+                            "properties": {
+                                "type": {
+                                    "type": "text"
+                                },
+                                "value": {
+                                    "type": "text"
+                                },
+                                "style": {
+                                    "type": "text"
+                                },
+                                "text": {
+                                    "type": "text"
+                                },
+                                "name": {
+                                    "type": "text"
+                                }
+                            }
+                        },
+                        "footer": {
+                            "type": "text"
+                        },
+                        "thumb_url": {
+                            "type": "text"
+                        },
+                        "color": {
+                            "type": "text"
+                        },
+                        "footer_icon": {
+                            "type": "text"
+                        },
+                        "image_url": {
+                            "type": "text"
+                        },
+                        "title": {
+                            "type": "text"
+                        },
+                        "markdwn_in": {
+                            "type": "text"
+                        },
+                        "text": {
+                            "type": "text"
+                        },
+                        "author_icon": {
+                            "type": "text"
+                        },
+                        "footer_icon": {
+                            "type": "text"
+                        },
+                        "pretext": {
+                            "type": "text"
+                        },
+                        "fields": {
+                            "properties": {
+                                "value": {
+                                    "type": "text"
+                                },
+                                "title": {
+                                    "type": "text"
+                                },
+                                "short": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "title_link": {
+                            "type": "text"
+                        },
+                        "author_link": {
+                            "type": "text"
+                        },
+                        "fallback": {
+                            "type": "text"
+                        },
+                        "footer": {
+                            "type": "text"
+                        },
+                        "ts": {
+                            "type": "text",
+                            "fields": {
+                                "float": {
+                                    "type": "float"
+                                }
+                            }
+                        }
+                    }
+                },
+                "ts": {
+                    "type": "text",
+                    "fields": {
+                        "float": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "name": {
+                    "type": "text"
+                },
+                "old_name": {
+                    "type": "text"
+                },
+                "reply_to": {
+                    "type": "long"
+                },
+                "bot_id": {
+                    "type": "text"
+                },
+                "thread_ts": {
+                    "type": "text",
+                    "fields": {
+                        "float": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "hidden": {
+                    "type": "boolean"
+                },
+                "team": {
+                    "type": "text",
+                    "fields": {
+                        "raw": {
+                            "index": true,
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "id": {
+                    "type": "text"
+                },
+                "is_starred": {
+                    "type": "boolean"
+                },
+                "topic": {
+                    "type": "text"
+                },
+                "comment": {
+                    "properties": {
+                        "comment": {
+                            "type": "text"
+                        },
+                        "user": {
+                            "type": "text"
+                        },
+                        "id": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "sub_type": {
+                    "type": "text",
+                    "fields": {
+                        "raw": {
+                            "index": true,
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "inviter": {
+                    "type": "text"
+                },
+                "channel": {
+                    "type": "keyword",
+                    "fields": {
+                        "raw": {
+                            "index": true,
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "deleted_ts": {
+                    "type": "text"
+                },
+                "purpose": {
+                    "type": "text"
+                },
+                "text": {
+                    "type": "text"
+                },
+                "pinned_to": {
+                    "type": "text"
+                },
+                "type": {
+                    "type": "text"
+                },
+                "event_ts": {
+                    "type": "text"
+                },
+                "username": {
+                    "type": "text"
+                },
+                "edited": {
+                    "properties": {
+                        "user": {
+                            "type": "text"
+                        },
+                        "ts": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "file": {
+                    "properties": {
+                        "permalink": {
+                            "type": "text"
+                        },
+                        "user": {
+                            "type": "text"
+                        },
+                        "size": {
+                            "type": "long"
+                        },
+                        "filetype": {
+                            "type": "text"
+                        },
+                        "num_stars": {
+                            "type": "long"
+                        },
+                        "thumb_360": {
+                            "type": "text"
+                        },
+                        "thumb_80": {
+                            "type": "text"
+                        },
+                        "thumb_360_gif": {
+                            "type": "text"
+                        },
+                        "url_download": {
+                            "type": "text"
+                        },
+                        "channels": {
+                            "type": "text"
+                        },
+                        "url": {
+                            "type": "text"
+                        },
+                        "name": {
+                            "type": "text"
+                        },
+                        "public_url_shared": {
+                            "type": "boolean"
+                        },
+                        "thumb_64": {
+                            "type": "text"
+                        },
+                        "thumb_360_h": {
+                            "type": "long"
+                        },
+                        "url_private": {
+                            "type": "text"
+                        },
+                        "groups": {
+                            "type": "text"
+                        },
+                        "is_public": {
+                            "type": "boolean"
+                        },
+                        "edit_link": {
+                            "type": "text"
+                        },
+                        "editable": {
+                            "type": "boolean"
+                        },
+                        "id": {
+                            "type": "text"
+                        },
+                        "is_starred": {
+                            "type": "boolean"
+                        },
+                        "mimetype": {
+                            "type": "text"
+                        },
+                        "url_private_download": {
+                            "type": "text"
+                        },
+                        "thumb_360_w": {
+                            "type": "long"
+                        },
+                        "mode": {
+                            "type": "text"
+                        },
+                        "pretty_type": {
+                            "type": "text"
+                        },
+                        "preview": {
+                            "type": "text"
+                        },
+                        "title": {
+                            "type": "text"
+                        },
+                        "external_type": {
+                            "type": "text"
+                        },
+                        "preview_highlight": {
+                            "type": "text"
+                        },
+                        "initial_comment": {
+                            "properties": {
+                                "comment": {
+                                    "type": "text"
+                                },
+                                "user": {
+                                    "type": "text"
+                                },
+                                "id": {
+                                    "type": "text"
+                                }
+                            }
+                        },
+                        "is_external": {
+                            "type": "boolean"
+                        },
+                        "lines_more": {
+                            "type": "long"
+                        },
+                        "lines": {
+                            "type": "long"
+                        }
+                    }
+                },
+                "members": {
+                    "type": "text"
+                }
+            }
+        }
+    },
+    "aliases": {
+    }
+}
